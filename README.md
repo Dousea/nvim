@@ -38,6 +38,7 @@ On top of LazyVim's defaults:
 | Review | [diffview.nvim](https://github.com/sindrets/diffview.nvim) for git, Neovim's built-in Undotree for anything else |
 | chezmoi | LazyVim's chezmoi extra: edit and apply dotfiles from Neovim |
 | Habits | [hardtime.nvim](https://github.com/m4xshen/hardtime.nvim) hints at better motions |
+| Tips | [neovim-tips](https://github.com/saxon1964/neovim-tips): a tip popup once a day, plus a searchable collection; your own tips live in `neovim_tips/user_tips.md` |
 
 Also:
 
@@ -63,6 +64,8 @@ Only the ones added here; `<leader>` is Space. `<leader>sk` searches all keymaps
 | `<leader>gV` | Diffview history of the current file |
 | `<leader>uu` | Undotree |
 | `<leader>ht` / `<leader>hr` | Toggle hardtime / show its report |
+| `<leader>To` / `<leader>Tr` | Browse tips / show a random tip |
+| `<leader>Tb` / `<leader>Ta` / `<leader>Te` | Bookmarked tips / add a tip / edit your tips |
 | `n` / `N` | Next / previous match, centered |
 
 ## tmux
