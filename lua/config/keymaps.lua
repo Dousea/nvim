@@ -6,3 +6,8 @@ local default_opts = { noremap = true, silent = true }
 -- Center search results
 vim.keymap.set("n", "n", "nzz", default_opts)
 vim.keymap.set("n", "N", "Nzz", default_opts)
+
+vim.keymap.set("n", "<leader>uu", function()
+  vim.cmd.packadd("nvim.undotree")
+  vim.cmd.Undotree()
+end, { desc = "Undotree" })
