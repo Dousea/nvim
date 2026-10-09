@@ -25,6 +25,21 @@ nvim
 The first start installs the plugins, then Mason installs the language servers and
 tools in the background (`:Mason` shows progress).
 
+## Update
+
+With the dotfiles, chezmoi pulls this repo when it's more than an hour old:
+
+```sh
+chezmoi update                      # or --refresh-externals to pull now
+```
+
+Then run `:Lazy restore` in Neovim to put the plugins at the versions in
+`lazy-lock.json`. Pulling fails if the clone has local changes, so commit or
+discard them first.
+
+Update plugins on one machine with `:Lazy sync` and commit `lazy-lock.json`, so the
+lockfile changes in one place only.
+
 ## What's in it
 
 On top of LazyVim's defaults:
