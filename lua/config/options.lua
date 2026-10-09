@@ -8,6 +8,7 @@ vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
 -- If no prettier config file is found, the formatter will not be used
 vim.g.lazyvim_prettier_needs_config = true
 vim.g.lazyvim_php_lsp = "intelephense"
+vim.g.lazyvim_python_lsp = "basedpyright"
 
 -- adds <> to % matchpairs
 vim.opt.matchpairs:append("<:>")
