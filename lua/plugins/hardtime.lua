@@ -3,9 +3,6 @@ return {
   lazy = false,
   dependencies = { "MunifTanjim/nui.nvim" },
   opts = {
-    disabled_filetypes = {
-      ["copilot-chat"] = true,
-    },
     hints = {
       ["[dcyvV][ia][%(%)]"] = {
         message = function(keys)
