@@ -45,3 +45,29 @@ vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.showbreak = "↳ "
 vim.opt.breakat = " ^I-+;,."
+
+-- GNOME only lets wl-clipboard reach the clipboard with focus, so yanks and pastes can
+-- block until a "wl-clipboard is ready" notification is clicked. Copy through the
+-- terminal (OSC 52) instead and paste the last copy from Neovim; paste text from
+-- other apps with the terminal's paste.
+if vim.env.WAYLAND_DISPLAY and (vim.env.XDG_CURRENT_DESKTOP or ""):find("GNOME") then
+  local osc52 = require("vim.ui.clipboard.osc52")
+  local last = {}
+  local function copy(reg)
+    local send = osc52.copy(reg)
+    return function(lines, regtype)
+      last[reg] = { lines, regtype }
+      send(lines)
+    end
+  end
+  local function paste(reg)
+    return function()
+      return last[reg] or { { "" }, "v" }
+    end
+  end
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = { ["+"] = copy("+"), ["*"] = copy("*") },
+    paste = { ["+"] = paste("+"), ["*"] = paste("*") },
+  }
+end
